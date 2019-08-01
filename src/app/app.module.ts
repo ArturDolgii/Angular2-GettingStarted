@@ -4,11 +4,13 @@ import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {ProductListComponent} from "./products/product-list.component";
 import {FormsModule} from "@angular/forms";
+import {ProductFilterPipe} from "./products/product-filter.pipe";
 
 @NgModule({
     declarations: [
         AppComponent,
-        ProductListComponent
+        ProductListComponent,
+        ProductFilterPipe
     ],
     imports: [
         BrowserModule,
