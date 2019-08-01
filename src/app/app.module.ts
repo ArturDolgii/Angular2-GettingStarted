@@ -6,7 +6,7 @@ import {ProductListComponent} from "./products/product-list.component";
 import {FormsModule} from "@angular/forms";
 import {ProductFilterPipe} from "./products/product-filter.pipe";
 import {StarComponent} from "./shared/star.component";
-import {ProductService} from "./products/product.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -17,10 +17,10 @@ import {ProductService} from "./products/product.service";
     ],
     imports: [
         BrowserModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
-    bootstrap: [AppComponent],
-    providers: [ProductService]
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

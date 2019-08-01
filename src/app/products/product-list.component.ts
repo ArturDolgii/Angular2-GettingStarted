@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {IProduct} from "./products";
 import {ProductService} from "./product.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
     selector: "pm-products",
@@ -18,13 +19,17 @@ export class ProductListComponent implements OnInit {
     showImage = false;
     listFilter: string;
     products: IProduct[];
+    errorMessage: string;
 
     toggleImage(): void {
         this.showImage = !this.showImage;
     }
 
     ngOnInit(): void {
-        this.products = this.productService.getProducts();
+        this.productService.getProducts().subscribe(
+            products => this.products = products,
+            (error: HttpErrorResponse) => this.errorMessage = error.message
+        );
     }
 
     onRatingClicked(message: string): void {
